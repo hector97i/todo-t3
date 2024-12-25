@@ -16,7 +16,7 @@ import {
  *
  * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
  */
-export const createTable = pgTableCreator((name) => `todo-t3_${name}`);
+export const createTable = pgTableCreator((name) => `t3_gallery_${name}`);
 
 export const posts = createTable(
   "post",
