@@ -1,3 +1,7 @@
+import { db } from "~/server/db";
+
+export const dynamic = "force-dynamic";
+
 const mockImages = [
   // {
   //   name: "Screenshot 2024-12-10 at 11.44.54 a.m..png",
@@ -33,12 +37,18 @@ const mockImages = [
   },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const posts = await db.query.posts.findMany();
   return (
     <main className="">
       <div className="flex flex-wrap gap-4">
-        {mockImages.map((image) => (
-          <div key={image.customId}>
+        {posts.map((post) => (
+          <div key={post.id}>
+            <h2>{post.name}</h2>
+          </div>
+        ))}
+        {[...mockImages, ...mockImages, ...mockImages].map((image, index) => (
+          <div key={image.customId + "-" + index}>
             <img src={image.url} alt={image.name} className="w-60" />
           </div>
         ))}
