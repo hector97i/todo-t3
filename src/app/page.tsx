@@ -9,9 +9,9 @@ const Images = async () => {
   });
   return (
     <div className="flex flex-wrap gap-4">
-      {images.map((image, index) => (
+      {images.map((image) => (
         <div
-          key={image.name + "-" + index}
+          key={image.name}
           className="flex flex-col items-center gap-1 rounded-xl border border-blue-600 p-2"
         >
           <img src={image.url} alt={image.name} className="w-60" />

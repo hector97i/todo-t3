@@ -1,0 +1,1 @@
+ALTER TABLE "t3_gallery_images" ADD COLUMN "user_id" varchar(256) NOT NULL;
